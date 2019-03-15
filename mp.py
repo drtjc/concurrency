@@ -1,6 +1,9 @@
 import multiprocessing as mp
 import os
 import psutil
+import timeit
+import cProfile
+import re
 
 def g(x):
     return x*x
@@ -41,3 +44,6 @@ if __name__ == '__main__':
     p.start()
     print(q.get())
     p.join()    
+
+    cProfile.run('re.compile("foo|bar")')
+
